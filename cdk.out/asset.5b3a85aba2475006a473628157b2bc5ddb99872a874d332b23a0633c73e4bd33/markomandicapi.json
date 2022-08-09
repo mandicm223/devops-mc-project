@@ -1,0 +1,52 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2022-08-04T11:53:36Z",
+    "title" : "apiGateway"
+  },
+  "host" : "c2k8fxi4y3.execute-api.eu-west-1.amazonaws.com",
+  "basePath" : "/prod",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/api/v1/createPerson" : {
+      "post" : {
+        "responses" : { },
+        "x-amazon-apigateway-integration" : {
+          "type" : "aws_proxy",
+          "httpMethod" : "POST",
+          "uri" : "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:446835144354:function:lambda-api-dynamo-stack-HelloHandlerpost0A28F3DD-IPfjq1PkgiyL/invocations",
+          "passthroughBehavior" : "when_no_match"
+        }
+      }
+    },
+    "/api/v1/getPerson" : {
+      "get" : {
+        "responses" : { },
+        "x-amazon-apigateway-integration" : {
+          "type" : "aws_proxy",
+          "httpMethod" : "POST",
+          "uri" : "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:446835144354:function:lambda-api-dynamo-stack-HelloHandlerpost0A28F3DD-IPfjq1PkgiyL/invocations",
+          "passthroughBehavior" : "when_no_match"
+        }
+      }
+    }
+  },
+  "x-amazon-apigateway-policy" : {
+    "Version" : "2012-10-17",
+    "Statement" : [ {
+      "Effect" : "Allow",
+      "Principal" : {
+        "AWS" : "*"
+      },
+      "Action" : "execute-api:*",
+      "Resource" : "arn:aws:execute-api:eu-west-1:446835144354:c2k8fxi4y3/*"
+    }, {
+      "Effect" : "Deny",
+      "Principal" : {
+        "AWS" : "*"
+      },
+      "Action" : "execute-api:Invoke",
+      "Resource" : "arn:aws:execute-api:eu-west-1:446835144354:c2k8fxi4y3/*"
+    } ]
+  }
+}

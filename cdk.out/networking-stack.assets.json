@@ -1,0 +1,19 @@
+{
+  "version": "20.0.0",
+  "files": {
+    "3c9dfb2b63c06807b2b348174752d909f25735a9f821de4b99737189557a1394": {
+      "source": {
+        "path": "networking-stack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "3c9dfb2b63c06807b2b348174752d909f25735a9f821de4b99737189557a1394.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

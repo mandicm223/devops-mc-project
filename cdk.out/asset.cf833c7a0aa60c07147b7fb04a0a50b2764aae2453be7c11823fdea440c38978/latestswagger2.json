@@ -1,0 +1,34 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "2022-08-02T10:49:05Z",
+    "title" : "apiGateway"
+  },
+  "host" : "2x7wt6ztw9.execute-api.eu-west-1.amazonaws.com",
+  "basePath" : "/prod",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/apiv1createPerson" : {
+      "post" : {
+        "responses" : { },
+        "x-amazon-apigateway-integration" : {
+          "httpMethod" : "POST",
+          "uri" : "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:446835144354:function:lambda-api-dynamo-stack-HelloHandlerpost0A28F3DD-C9OkHtxImYbR/invocations",
+          "passthroughBehavior" : "when_no_match",
+          "type" : "aws_proxy"
+        }
+      }
+    },
+    "/apiv1getPerson" : {
+      "get" : {
+        "responses" : { },
+        "x-amazon-apigateway-integration" : {
+          "httpMethod" : "POST",
+          "uri" : "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:446835144354:function:lambda-api-dynamo-stack-HelloHandlerpost0A28F3DD-C9OkHtxImYbR/invocations",
+          "passthroughBehavior" : "when_no_match",
+          "type" : "aws_proxy"
+        }
+      }
+    }
+  }
+}
