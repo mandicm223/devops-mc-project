@@ -5,55 +5,18 @@
 
 ![This is an image](https://raw.githubusercontent.com/mandicm223/devops-mc-project/main/Screenshot%20from%202022-08-11%2010-04-59.png)
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
-
-This project is set up like a standard Python project.  The initialization process also creates
-a virtualenv within this project, stored under the .venv directory.  To create the virtualenv
-it assumes that there is a `python3` executable in your path with access to the `venv` package.
-If for any reason the automatic creation of the virtualenv fails, you can create the virtualenv
-manually once the init process completes.
-
-To manually create a virtualenv on MacOS and Linux:
-
-```
-$ python3 -m venv .venv
-```
-
-After the init process completes and the virtualenv is created, you can use the following
-step to activate your virtualenv.
-
-```
-$ source .venv/bin/activate
-```
-
-If you are a Windows platform, you would activate the virtualenv like this:
-
-```
-% .venv\Scripts\activate.bat
-```
-
-Once the virtualenv is activated, you can install the required dependencies.
-
-```
-$ pip install -r requirements.txt
-```
-
-At this point you can now synthesize the CloudFormation template for this code.
-
-```
-$ cdk synth
-```
-
-You can now begin exploring the source code, contained in the hello directory.
-There is also a very trivial test included that can be run like this:
-
-```
-$ pytest
-```
-
-To add additional dependencies, for example other CDK libraries, just add to
-your requirements.txt file and rerun the `pip install -r requirements.txt`
-command.
+Your final task will be to create automation from diagram on Ireland region (eu-west-1) and all resources have to be created with IaaC using CloudFormation in YAML format, AWS SAM or CDK with python library.
+>Resources:
+* VPC:oThree public subnets in each AZoThree private subnets in each AZoWithout NAT Gateway oRouting tables setup in order to match public/private subnets needsoNACL for private and private subnets
+* DynamoDB Table•Two Lambda Functions (Runtime: python3.9):oFirst lambda functions to write some data in DynamoDBoSecondary lambda functions to pull data from DynamoDB
+* VPC Endpoint for Private API:oService: com.amazonaws.eu-west-1.execute-api•API Gateway (REST API Private):oStart with initial path “/api/v1/”oAPI must have one POST method with first lambda integration and GET method with second lambda integration. For both methods use lambda proxy integration.oCloudWatch logging for API  
+* ECR repository for storing docker image:
+Create a docker image that contains Swagger UI with swagger.json file where you described for your REST API. https://swagger.io/tools/swagger-ui.
+* ECS cluster:oEnable container insightsoCapacity providers should be Fargate and Fargate Spot•Task Definition:oCreate task definition with your swagger docker image on FargateoUse optimal computer capacity (Check allowed values for CPU and memory https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html) and be aware of port mapping.
+* EcsService:oRun service from your task definition on Fargate SpotoRun service on your VPC on private subnetsoService has to be behind ALB•ACM:oRequest a public certificate for “*.${firstnamelastname}.levi9masterclass.com” and add DNS validation in Route 53 hosted zone levi9masterclass.com•ALB:oTwo listeners http and httpsoCreate redirections from http to httpsoCreate two target groupsfor REST API and EscService on https listener.oConfigure listener rules for https listener. The default rule should forward traffic EscService target group, for second rule specify URL path for api traffic“/api/*” to forward the traffic on REST API target group (Use vpc endpoint IP addresses).
+* Route53:oCreate Route 53 record api.${firstnamelastname}.levi9masterclass.comfor your ALB in hosted zone levi9masterclass.com
+Set up a continuous integration and continuous delivery (CI/CD) pipeline for deployingfinal task on AWS environment using the AWS tools such as CodeCommt, CodePipeline and CodeBulid.Use the following naming convention for your resource names: 
+* ${Environment}-${ResourceNameShort} -${FirstNameLastName}-${description} Note: for Environment name use “dev”
 
 ## Useful commands
 
