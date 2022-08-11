@@ -1,8 +1,9 @@
 
-# Welcome to your CDK Python project!
+# Welcome to our CDK Python project!
 
-You should explore the contents of this project. It demonstrates a CDK app with an instance of a stack (`aws_final_project_stack`)
-which contains an Amazon SQS queue that is subscribed to an Amazon SNS topic.
+## Levi9 DevOps Masterclass Final Project Marko Mandic
+
+![This is an image](https://raw.githubusercontent.com/mandicm223/devops-mc-project/main/Screenshot%20from%202022-08-11%2010-04-59.png)
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
